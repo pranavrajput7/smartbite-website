@@ -38,5 +38,38 @@
     </div>
     
     <script src="script.js"></script>
+    <script>
+document.addEventListener('DOMContentLoaded', function() {
+    const loginForm = document.getElementById('loginForm');
+    
+    if (loginForm) {
+        loginForm.addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent default form submission
+            
+            // Get form data
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            
+            // Basic validation
+            if (!username || username.length < 3) {
+                alert('Please enter a valid username (min 3 characters)');
+                return;
+            }
+            
+            if (!password || password.length < 6) {
+                alert('Please enter a valid password (min 6 characters)');
+                return;
+            }
+            
+            // Success - simulate login
+            alert('Login successful!');
+            
+            // Redirect to homepage
+            window.location.href = 'homepage.html';
+        });
+    }
+});
+</script>
+
 </body>
 </html>
