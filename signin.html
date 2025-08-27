@@ -50,5 +50,46 @@
     </div>
     
     <script src="script.js"></script>
+    <script>
+document.addEventListener('DOMContentLoaded', function() {
+    const signinForm = document.getElementById('signinForm');
+    
+    if (signinForm) {
+        signinForm.addEventListener('submit', function(event) {
+            event.preventDefault(); // Stop form from submitting normally
+            
+            // Get form data
+            const firstName = document.getElementById('firstName').value;
+            const lastName = document.getElementById('lastName').value;
+            const username = document.getElementById('newUsername').value;
+            const password = document.getElementById('createPassword').value;
+            const confirmPassword = document.getElementById('confirmPassword').value;
+            
+            // Basic validation
+            if (password !== confirmPassword) {
+                alert('Passwords do not match!');
+                return;
+            }
+            
+            if (username.length < 3) {
+                alert('Username must be at least 3 characters long');
+                return;
+            }
+            
+            if (password.length < 6) {
+                alert('Password must be at least 6 characters long');
+                return;
+            }
+            
+            // Success message
+            alert('Account created successfully! Please log in.');
+            
+            // Redirect to login page
+            window.location.href = 'index.html';
+        });
+    }
+});
+</script>
+
 </body>
 </html>
