@@ -38,19 +38,17 @@
     </div>
     
     <script src="script.js"></script>
-    <script>
+<script>
 document.addEventListener('DOMContentLoaded', function() {
     const loginForm = document.getElementById('loginForm');
     
     if (loginForm) {
         loginForm.addEventListener('submit', function(event) {
-            event.preventDefault(); // Prevent default form submission
+            event.preventDefault();
             
-            // Get form data
             const username = document.getElementById('username').value;
             const password = document.getElementById('password').value;
             
-            // Basic validation
             if (!username || username.length < 3) {
                 alert('Please enter a valid username (min 3 characters)');
                 return;
@@ -60,16 +58,18 @@ document.addEventListener('DOMContentLoaded', function() {
                 alert('Please enter a valid password (min 6 characters)');
                 return;
             }
+
+            alert('Login successful! This will redirect to dashboard');
             
-            // Success - simulate login
-            alert('Login successful!');
-            
-            // Redirect to homepage
-            window.location.href = 'homepage.html';
+            // Add delay to ensure alert closes before redirect
+            setTimeout(function() {
+                window.location.href = 'homepage.html';
+            }, 500);
         });
     }
 });
 </script>
+
 
 </body>
 </html>
